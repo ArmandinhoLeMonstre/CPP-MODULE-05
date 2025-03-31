@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 12:23:06 by armitite          #+#    #+#             */
-/*   Updated: 2025/03/31 16:09:10 by armitite         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:50:23 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name) {
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Exception found : " << e.what() << std::endl;
+		std::cout << "Exception found during creation : " << e.what() << std::endl;
 	}
 	
 	return ;
@@ -86,7 +86,7 @@ void	Bureaucrat::ChangeGrade(std::string method) {
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Exception found : " << e.what() << std::endl;
+		std::cout << "Exception found during changing : " << e.what() << std::endl;
 	}
 }
 
@@ -116,4 +116,15 @@ void	Bureaucrat::decrement() {
 		_grade = tmp;
 
 	return ;
+}
+
+std::ostream &operator<<(std::ostream & o, Bureaucrat &assign) {
+
+	if (!(assign.getName().empty()))
+		o << assign.getName();
+	else
+		o << "No name";
+	o << ", bureaucrat grade " << assign.getGrade() << std::endl;
+	
+	return o;
 }
