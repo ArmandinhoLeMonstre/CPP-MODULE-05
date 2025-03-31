@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 12:19:13 by armitite          #+#    #+#             */
-/*   Updated: 2025/03/31 16:33:36 by armitite         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:42:01 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public :
 	~Bureaucrat();
 
 	std::string const	&getName();
-	int					&getGrade();
+	int	const			&getGrade();
 	void				ChangeGrade(std::string method);
 	
 	class GradeTooHighException : public std::exception {

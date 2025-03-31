@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 12:23:06 by armitite          #+#    #+#             */
-/*   Updated: 2025/03/31 18:09:22 by armitite         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:42:10 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name) {
 	return ;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &copy) {
+Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name){
 
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
@@ -63,7 +63,7 @@ Bureaucrat::~Bureaucrat () {
 	return ;
 }
 
-int	&Bureaucrat::getGrade() {
+int const	&Bureaucrat::getGrade() {
 
 	return (_grade);
 }
@@ -120,11 +120,7 @@ void	Bureaucrat::increment() {
 
 std::ostream &operator<<(std::ostream & o, Bureaucrat &assign) {
 
-	if (!(assign.getName().empty()))
-		o << assign.getName();
-	else
-		o << "No name";
-	o << ", bureaucrat grade " << assign.getGrade() << std::endl;
+	o << assign.getName() << ", bureaucrat grade " << assign.getGrade() << std::endl;
 	
 	return o;
 }
