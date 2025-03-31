@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 12:50:47 by armitite          #+#    #+#             */
-/*   Updated: 2025/03/31 17:48:05 by armitite         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:12:21 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main ()
 	std::string minus = "-";
 	std::string bad_sign = "=";
 	
-	std::cout << "Test 1 : " << std::endl << "-----------------------" << std::endl;
+	std::cout << "Test 1, constructor with too high grade : " << std::endl << "-----------------------" << std::endl;
 	{
 		try {
 			Bureaucrat Z("Test", 153);
@@ -28,7 +28,7 @@ int	main ()
 			std::cout << "Exception found during creation : " << e.what() << std::endl;
 		};
 	}
-	std::cout << std::endl << "Test 2 : " << std::endl << "-----------------------" << std::endl;
+	std::cout << std::endl << "Test 2 constructor with too low grade : " << std::endl << "-----------------------" << std::endl;
 	{
 		try {
 			Bureaucrat X("Test", 0);
@@ -38,15 +38,15 @@ int	main ()
 			std::cout << "Exception found during creation : " << e.what() << std::endl;
 		};
 	}
-	std::cout << std::endl << "Test 3 : " << std::endl << "-----------------------" << std::endl;
+	std::cout << std::endl << "Test 3 trying to go too high + minus + testing copy contructor : " << std::endl << "-----------------------" << std::endl;
 	{	
 		try {
 			Bureaucrat A("Test", 150);
 			Bureaucrat B(A);
 			std::cout << A;
 			std::cout << B;
-			A.ChangeGrade(minus);
-			B.ChangeGrade(plus);
+			A.ChangeGrade(plus);
+			B.ChangeGrade(minus);
 			std::cout << "A new grade : " << A;
 			std::cout << "B new grade : " << B;
 		}
@@ -55,12 +55,12 @@ int	main ()
 			std::cout << "Exception found during creation : " << e.what() << std::endl;
 		};
 	}
-	std::cout << std::endl << "Test 4 : " << std::endl << "-----------------------" << std::endl;
+	std::cout << std::endl << "Test 4 trying to go too low : " << std::endl << "-----------------------" << std::endl;
 	{	
 		try {
 			Bureaucrat C("Alo", 1);
 			std::cout << C;
-			C.ChangeGrade(minus);
+			C.ChangeGrade(plus);
 			std::cout << "C new grade : " << C;
 		}
 		catch (std::exception &e)
@@ -68,7 +68,7 @@ int	main ()
 			std::cout << "Exception found during creation : " << e.what() << std::endl;
 		};
 	}
-	std::cout << std::endl << "Test 5 : " << std::endl << "-----------------------" << std::endl;
+	std::cout << std::endl << "Test 5 tryng bad sign + plus: " << std::endl << "-----------------------" << std::endl;
 	{	
 		try {
 			Bureaucrat D("Quatre", 10);
