@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 12:19:13 by armitite          #+#    #+#             */
-/*   Updated: 2025/03/31 19:41:45 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/02 14:33:44 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include <ostream>
 #include <iostream>
 #include <stdexcept>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 
@@ -35,6 +38,7 @@ public :
 	std::string const	&getName();
 	int	const			&getGrade();
 	void				ChangeGrade(std::string method);
+	void				signForm(Form &Form, Bureaucrat &Candidate);
 	
 	class GradeTooHighException : public std::exception {
 

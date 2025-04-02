@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:44:42 by armitite          #+#    #+#             */
-/*   Updated: 2025/03/31 20:04:44 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/02 15:06:06 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,21 +86,36 @@ bool const &Form::getSignStatus() {
 
 void	Form::beSigned(Bureaucrat &Candidate) {
 
+	try
+	{
+		TryToSign(Candidate);
+		std::cout << Candidate.getName() << " signed " << getName() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << Candidate.getName() << " couldn't sign " << getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void	Form::TryToSign(Bureaucrat &Candidate) {
+
 	int grade = Candidate.getGrade();
 	
-	try 
+	if (grade > _required_to_sign)
 	{
-		if (grade > _required_to_sign)
-		{
-			throw GradeTooLowException();
-		}
-		else
-		{
-			_signed = true;
-		}
+		throw GradeTooLowException();
 	}
-	catch (std::exception &e)
+	else
 	{
-		std::cout << "Exception found signature : " << e.what() << std::endl;
+		_signed = true;
 	}
+}
+
+std::ostream &operator<<(std::ostream & o, Form &assign) {
+
+	o << assign.getName() << ", form To sign required is : " << assign.getToSign();
+	o << ", form To execute required is : " << assign.getToExecute();
+	o << ", form status is : " << assign.getSignStatus() << std::endl;
+	
+	return o;
 }
