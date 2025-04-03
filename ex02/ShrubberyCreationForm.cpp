@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:03:52 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/03 16:28:23 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:25:28 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 
+	std::cout << "Shrubbery destructor called" << std::endl;
 	return ;
 }
 

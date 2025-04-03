@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 14:34:33 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/03 16:55:37 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:25:14 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &a
 
 RobotomyRequestForm::~RobotomyRequestForm() {
 
+	std::cout << "Robotomy destructor called" << std::endl;
 	return ;
 }
 
