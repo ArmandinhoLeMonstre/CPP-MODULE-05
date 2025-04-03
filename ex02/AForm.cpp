@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:44:42 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/02 19:21:05 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:41:29 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,22 +64,22 @@ AForm::~AForm() {
 	return ;
 }
 
-int	const &AForm::getToSign() {
+int	const &AForm::getToSign() const {
 
 	return (_required_to_sign);
 }
 
-int	const &AForm::getToExecute() {
+int	const &AForm::getToExecute() const {
 
 	return (_required_to_execute);
 }
 
-std::string const &AForm::getName() {
+std::string const &AForm::getName() const {
 
 	return (_name);
 }
 
-bool const &AForm::getSignStatus() {
+bool const &AForm::getSignStatus() const {
 
 	return (_signed);
 }
@@ -118,4 +118,29 @@ std::ostream &operator<<(std::ostream & o, AForm &assign) {
 	o << ", form status is : " << assign.getSignStatus() << std::endl;
 	
 	return o;
+}
+
+void 	AForm::execute(Bureaucrat const & executor) const {
+
+	try
+	{
+		call_ability(executor);
+		std::cout << executor.getName() << " executed " << getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Couldn't execute " << this->getName() << " : " << e.what() << std::endl;
+	}
+
+	return ;
+}
+
+void	AForm::call_ability(Bureaucrat const & executor) const {
+
+	if (_signed == 0)
+		throw UnsignedForm();
+	if (executor.getGrade() > _required_to_execute)
+		throw GradeTooLowException();
+		
+	ability(executor);
 }

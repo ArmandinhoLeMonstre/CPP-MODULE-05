@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 
 RM = rm -rf
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

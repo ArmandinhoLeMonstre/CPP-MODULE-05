@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 17:57:02 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/02 19:04:41 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:58:57 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ class PresidentialPardonForm : public AForm{
 		bool				_signed;
 		int	const			_required_to_sign;
 		int	const			_required_to_execute;
-		
-		void				TryToSign(Bureaucrat &Candidate);
 	
 	public:
 		

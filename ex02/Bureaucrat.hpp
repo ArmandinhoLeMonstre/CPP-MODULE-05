@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 12:19:13 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/02 18:49:26 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:00:43 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ public :
 	std::string const	&getName() const;
 	int	const			&getGrade() const;
 	void				ChangeGrade(std::string method);
-	void				signForm(AForm &AForm, Bureaucrat &Candidate);
+	void				signForm(AForm &AForm);
+	void				executeForm(AForm const & form) const;
 	
 	class GradeTooHighException : public std::exception {
 

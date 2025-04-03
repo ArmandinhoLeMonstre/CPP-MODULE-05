@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 12:23:06 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/02 18:49:36 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:00:33 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,12 @@ std::ostream &operator<<(std::ostream & o, Bureaucrat &assign) {
 	return o;
 }
 
-void	Bureaucrat::signForm(AForm &AForm, Bureaucrat &Candidate) {
+void	Bureaucrat::signForm(AForm &AForm) {
 
-	AForm.beSigned(Candidate);
+	AForm.beSigned(*this);
+}
+
+void	Bureaucrat::executeForm(AForm const & form) const {
+
+	form.execute(*this);
 }

@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:34:49 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/02 19:21:32 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:56:32 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,13 @@ class AForm {
 		int	const			_required_to_sign;
 		int	const			_required_to_execute;
 		
-		void				TryToSign(Bureaucrat &Candidate);
 		
+	protected:
+		
+		void			TryToSign(Bureaucrat &Candidate);
+		void			call_ability(Bureaucrat const & executor) const;
+		void virtual	ability(Bureaucrat const & executor) const = 0;
+	
 	public:
 		
 		AForm(std::string FormName, int to_sign, int to_execute);
@@ -34,10 +39,10 @@ class AForm {
 		
 		virtual ~AForm();
 		
-		std::string const	&getName();
-		int			const	&getToSign();
-		int			const	&getToExecute();
-		bool		const	&getSignStatus();
+		std::string const	&getName() const;
+		int			const	&getToSign() const;
+		int			const	&getToExecute() const;
+		bool		const	&getSignStatus() const;
 		
 		class GradeTooHighException : public std::exception {
 			
@@ -53,10 +58,18 @@ class AForm {
 				return ("Grade too low");
 			}
 		};
+		class UnsignedForm : public std::exception {
+			
+			virtual const char* what() const throw()
+			{
+				return ("Unsigned Form");
+			}
+		};
 		
 		void			beSigned(Bureaucrat &Candidate);
-		void virtual	execute(Bureaucrat const & executor) const = 0;
-		void virtual	ability(Bureaucrat const & executor) const = 0;
+		void			execute(Bureaucrat const & executor) const;
+		// void			call_ability(Bureaucrat const & executor) const;
+		// void virtual	ability(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream&   operator<<(std::ostream& o, AForm &assign);
