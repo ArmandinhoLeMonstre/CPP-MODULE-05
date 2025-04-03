@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 17:57:02 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/03 13:58:57 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:45:24 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ class PresidentialPardonForm : public AForm{
 		
 		~PresidentialPardonForm();
 		
-		void	execute(Bureaucrat const & executor) const;
 		void	ability(Bureaucrat const & executor) const;
 };

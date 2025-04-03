@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:34:49 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/03 13:56:32 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:29:10 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ class AForm {
 		
 		void			beSigned(Bureaucrat &Candidate);
 		void			execute(Bureaucrat const & executor) const;
-		// void			call_ability(Bureaucrat const & executor) const;
-		// void virtual	ability(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream&   operator<<(std::ostream& o, AForm &assign);

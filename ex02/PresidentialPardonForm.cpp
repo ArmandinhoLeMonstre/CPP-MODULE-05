@@ -6,7 +6,7 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 18:04:17 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/02 19:28:53 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:36:49 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm
 
 PresidentialPardonForm::~PresidentialPardonForm() {
 
-	return ;
-}
-
-void 	PresidentialPardonForm::execute(Bureaucrat const & executor) const {
-
-	try
-	{
-		ability(executor);
-	}
-	catch (std::exception &e)
-	{
-		throw GradeTooLowException();
-	}
-
+	std::cout << "Presidential destructor called" << std::endl;
 	return ;
 }
 

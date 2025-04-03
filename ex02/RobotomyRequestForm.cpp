@@ -6,13 +6,13 @@
 /*   By: armitite <armitite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 14:34:33 by armitite          #+#    #+#             */
-/*   Updated: 2025/04/03 14:35:05 by armitite         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:55:37 by armitite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string Target) : AForm("RobotomyRequestForm", 25, 5), _name("RobotomyRequestForm"), _target(Target), _required_to_sign(25), _required_to_execute(5) {
+RobotomyRequestForm::RobotomyRequestForm(std::string Target) : AForm("RobotomyRequestForm", 72, 45), _name("RobotomyRequestForm"), _target(Target), _required_to_sign(72), _required_to_execute(45) {
 
 	std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
 	
@@ -46,24 +46,18 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 	return ;
 }
 
-void 	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-
-	try
-	{
-		ability(executor);
-	}
-	catch (std::exception &e)
-	{
-		throw GradeTooLowException();
-	}
-
-	return ;
-}
 
 void	RobotomyRequestForm::ability(Bureaucrat const & executor) const {
 	
 	if (executor.getGrade() <= _required_to_execute)
-		std::cout << "informs that " <<  _target << " has been pardoned by Zaphod Beeblebro" << std::endl;
+	{
+		std::srand(std::time(0));
+		int num = (std::rand() % 100) + 1;
+		if (num % 2 == 0)
+			std::cout << "Makes some drilling noises... " << _target << " has been robotomized" << std::endl;
+		else
+			std::cout << "Robotomy failed !" << std::endl;
+	}
 	else
 		throw GradeTooLowException();
 
